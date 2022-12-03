@@ -17,10 +17,6 @@ void swap(int *a, int *b){
 
 void bubbleSort(int array[], int size){
 
-    // Pada setiap iterasi dari bubble sort, 1 angka akan ada di posisi yang benar
-    // Sebuah angka akan ada di posisi yang benar jika angka tersebut merupakan angka paling besar dan posisinya ada di paling kanan
-    // Kita hanya perlu sort size - 1 element karena 1 angka akan otomatis tersort
-
     for (int i = 0; i < size - 1; i++)
         for (int j = 0; j < size - i - 1; j++)
             if (array[j] > array[j + 1]) swap(&array[j], &array[j + 1]);

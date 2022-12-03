@@ -17,10 +17,6 @@ void swap(int *a, int *b){
 
 void selectionSort(int array[], int size){
 
-    // Pada setiap iterasi dari selection sort 1 angka akan diletakkan pada posisi yang benar
-    // Sebuah angka akan terletak pada posisi yang benar jika angka tersebut berada paling kiri dan angka tersebut paling kecil
-    // Kita hanya perlu sort size - 1 elements karena 1 element akan tersort secara otomatis
-
     int minIndex;
     for (int i = 0; i < size - 1; i++){
 

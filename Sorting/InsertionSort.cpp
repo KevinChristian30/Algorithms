@@ -17,10 +17,6 @@ void swap(int *a, int *b){
 
 void insertionSort(int array[], int size){
 
-    // Array yang hanya punya 1 elemen itu adalah array yang sorted
-    // Memasukan sebuah bilangan ke array yang sorted itu relatif mudah, karena kita tidak perlu mencari sampai ujung
-    // Angka pertama kita anggap sorted
-
     for (int i = 1; i < size; i++)
         for (int j = i; j > 0 && array[j] < array[j - 1]; j--) swap(&array[j], &array[j - 1]);
 
