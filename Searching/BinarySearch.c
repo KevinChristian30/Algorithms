@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+#define NOTFOUND -1
+
+void printArray(int array[], int size){
+
+    for (int i = 0; i < size; i++) printf("%d ", array[i]);
+    puts("");
+
+}
+
+int binarySearch(int array[], int size, int toSearch){
+
+    int leftIndex = 0, rightIndex = size - 1;
+    while (leftIndex <= rightIndex){
+
+        int midIndex = (leftIndex + rightIndex) / 2;
+        if (array[midIndex] < toSearch) leftIndex = midIndex + 1;
+        else if (array[midIndex] > toSearch) rightIndex = midIndex - 1;
+        else return midIndex;
+
+    }
+    return NOTFOUND;
+
+}
+
+int main(){
+
+    int N; scanf("%d", &N); getchar();
+    
+    int array[N + 1];
+    for (int i = 0; i < N; i++){
+        
+        scanf("%d", &array[i]);
+        getchar();
+
+    }
+
+    int toSearch; scanf("%d", &toSearch); getchar();
+    
+    int index = binarySearch(array, N, toSearch);
+
+    printf("Array : "); printArray(array, N);
+    
+    if (index == NOTFOUND) printf("%d was not found!\n", toSearch);
+    else printf("%d was found at index %d\n", toSearch, index);
+
+    return 0;
+}
