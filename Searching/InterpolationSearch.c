@@ -11,15 +11,17 @@ void printArray(int array[], int size){
 
 int interpolationSearch(int array[], int size, int toSearch){
 
-    int high = size - 1, low = 0;
-    while (toSearch >= array[low] && toSearch <= array[high] && low <= high){
+    int left = 0, right = size - 1;
 
-        int probe = low + (high - low) * (toSearch - array[low]) / (array[high] - array[low]);
-        printf("Probe: %d\n", probe);
+    while (left <= right  && toSearch >= array[left] && toSearch <= array[right]){
 
-        if (array[probe] == toSearch) return probe;
-        else if (array[probe] < toSearch) low = probe + 1;
-        else high = probe + 1;
+        // b is the differance for each index step 
+        int b = (array[right] - array[left]) / (right - left);
+        int guess = left + (toSearch - array[left]) / b;
+
+        if (array[guess] == toSearch) return guess;
+        else if (array[guess] < toSearch) left = guess + 1;
+        else right = guess - 1;
 
     }
     return NOTFOUND;
